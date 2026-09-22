@@ -1,0 +1,7 @@
+import { useEffect, useState } from 'react';
+
+type TimeLeft = { days: number; hours: number; minutes: number; seconds: number };
+const target = new Date('2026-10-09T00:00:00');
+const getTimeLeft = (): TimeLeft => { const difference = Math.max(0, target.getTime() - Date.now()); return { days: Math.floor(difference / 86400000), hours: Math.floor(difference / 3600000) % 24, minutes: Math.floor(difference / 60000) % 60, seconds: Math.floor(difference / 1000) % 60 }; };
+
+export function Countdown() { const [time, setTime] = useState(getTimeLeft); useEffect(() => { const timer = window.setInterval(() => setTime(getTimeLeft()), 1000); return () => window.clearInterval(timer); }, []); const complete = Object.values(time).every((value) => value === 0); return <section className="countdown-section" id="countdown"><div className="section-heading"><p className="eyebrow"><span className="eyebrow-line" />Mark your calendar</p><h2>Something new<br /><em>is coming.</em></h2><p>October 09, 2026 <span className="heading-slash">/</span> GritSkool launch</p></div>{complete ? <p className="launch-message">GritSkool is here. Let the learning begin.</p> : <div className="timer" aria-label="Countdown to October 9, 2026">{(['days', 'hours', 'minutes', 'seconds'] as const).map((unit) => <div className="time-block" key={unit}><strong>{String(time[unit]).padStart(2, '0')}</strong><span>{unit}</span></div>)}</div>}</section>; }
