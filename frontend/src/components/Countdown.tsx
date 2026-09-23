@@ -47,54 +47,60 @@ export function Countdown() {
   return (
     <section className="cohort-section" id="countdown">
       <div className="cohort-card">
-        <p className="pill"><span className="pill-dot" />Next cohort</p>
-        <h2 className="cohort-heading">Starts <em>October 9</em></h2>
-        <p className="cohort-sub">Seats are limited and reviewed in the order applications arrive. Secure your place before enrolment closes.</p>
-        <p className="cohort-label"><span className="live-dot" />Next cohort starts in</p>
+        <div className="cohort-side">
+          <p className="cohort-side-label"><span className="pill-dot" />Something's about to change</p>
+          <span className="cohort-side-divider" />
+          <p className="cohort-side-text">The skills recruiters search for, revealed.</p>
+        </div>
 
-        <span className="cohort-watermark" aria-hidden="true">GRITSKOOL</span>
+        <div className="cohort-main">
+          <span className="cohort-watermark" aria-hidden="true">gritskool</span>
 
-        {complete ? (
-          <p className="launch-message">GritSkool is here. Let the learning begin.</p>
-        ) : (
-          <div className="timer-grid" aria-label="Countdown to October 9, 2026">
-            {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit, index) => (
-              <Fragment key={unit}>
-                <div className="timer-card">
-                  <strong>{String(time[unit]).padStart(2, '0')}</strong>
-                  <span>{unit}</span>
-                </div>
-                {index < 3 && <span className="timer-colon" aria-hidden="true">:</span>}
-              </Fragment>
-            ))}
+          <div className="cohort-content">
+            <h2 className="cohort-heading">The Skills Recruiters Search For,<em>Revealed</em></h2>
+            <p className="cohort-label">First look drops in</p>
+
+            {complete ? (
+              <p className="launch-message">GritSkool is here. Let the learning begin.</p>
+            ) : (
+              <div className="timer-grid" aria-label="Countdown to October 9, 2026">
+                {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit, index) => (
+                  <Fragment key={unit}>
+                    <div className={`timer-card${index === 1 ? ' timer-card-highlight' : ''}`}>
+                      <strong>{String(time[unit]).padStart(2, '0')}</strong>
+                      <span>{unit}</span>
+                    </div>
+                    {index < 3 && <span className="timer-colon" aria-hidden="true">:</span>}
+                  </Fragment>
+                ))}
+              </div>
+            )}
+
+            {status === 'success' ? (
+              <div className="success-block">
+                <p className="success-heading">{message || "You're on the list!"}</p>
+                <p className="early-access-caption">Be the first to know when we launch.</p>
+              </div>
+            ) : (
+              <>
+                <form className="early-access-form" onSubmit={handleSubmit}>
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    autoComplete="email"
+                  />
+                  <button type="submit" disabled={status === 'submitting'}>{status === 'submitting' ? 'Joining…' : 'Join Waitlist'}</button>
+                </form>
+                <p className={status === 'error' ? 'form-message form-message-error' : 'early-access-caption'}>
+                  {message || 'Be the first to know when we launch.'}
+                </p>
+              </>
+            )}
           </div>
-        )}
-
-        {status === 'success' ? (
-          <div className="success-block">
-            <p className="success-heading">{message || "You're on the list!"}</p>
-            <p className="early-access-caption">Be first to see it when it drops.</p>
-          </div>
-        ) : (
-          <>
-            <form className="early-access-form" onSubmit={handleSubmit}>
-              <span className="early-access-icon" aria-hidden="true">✉</span>
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-              />
-              <button type="submit" disabled={status === 'submitting'}>{status === 'submitting' ? 'Joining…' : 'Get early access'} <span>→</span></button>
-            </form>
-            <p className={status === 'error' ? 'form-message form-message-error' : 'early-access-caption'}>
-              {message || 'Be first to see it when it drops.'}
-            </p>
-          </>
-        )}
-        <p className="early-access-caption">October 2026 Cohort · all times IST</p>
+        </div>
       </div>
     </section>
   );

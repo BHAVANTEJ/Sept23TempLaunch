@@ -1,1 +1,17 @@
-export function Footer() { return <footer className="footer" id="contact"><div className="footer-main"><div><a className="brand footer-brand" href="#top"><span className="brand-mark">G</span>GritSkool</a><p>Connecting education, technology, and industry to build the next generation of talent.</p></div></div><div className="footer-bottom"><span>© 2026 GritSkool. All rights reserved.</span></div></footer>; }
+export function Footer() {
+  return (
+    <footer className="footer" id="contact">
+      <div className="footer-statement">
+        <span className="footer-watermark" aria-hidden="true">gritskool</span>
+        <p className="footer-statement-text">
+          Built by <em>Mangalore.</em>
+          <br />
+          For <em>Mangalore.</em>
+        </p>
+      </div>
+      <div className="footer-bottom">
+        <span>© 2026 GritSkool. All rights reserved.</span>
+      </div>
+    </footer>
+  );
+}
