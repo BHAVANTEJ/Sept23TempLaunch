@@ -3,7 +3,27 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "scripts": { "dev": "tsx watch src/server.ts", "build": "tsc", "start": "node dist/server.js" },
-  "dependencies": { "cors": "latest", "express": "latest" },
-  "devDependencies": { "@types/cors": "latest", "@types/express": "latest", "@types/node": "latest", "tsx": "latest", "typescript": "latest" }
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "latest",
+    "dotenv": "^18.0.3",
+    "express": "latest",
+    "nodemailer": "^10.0.10",
+    "pg": "^8.23.0",
+    "resend": "^6.28.1"
+  },
+  "devDependencies": {
+    "@types/cors": "latest",
+    "@types/express": "latest",
+    "@types/node": "latest",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.23.1",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
 }

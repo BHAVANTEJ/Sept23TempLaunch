@@ -1,4 +1,52 @@
 export function Hero() {
   const explore = () => document.getElementById('countdown')?.scrollIntoView({ behavior: 'smooth' });
-  return <section className="hero" id="top"><div className="hero-copy"><p className="eyebrow reveal reveal-one"><span className="eyebrow-line" /></p><h1 className="reveal reveal-two">Build skills<br /><em>that move</em><br />the world.</h1><p className="hero-text reveal reveal-three">GritSkool brings classrooms and the IT industry together to create practical, confident, career-ready talent.</p><div className="hero-actions reveal reveal-four"><button className="button button-primary" onClick={explore}>Explore GritSkool <span>↗</span></button><a className="text-link" href="#about"><span></span></a></div><div className="hero-meta reveal reveal-four"><span className="meta-dot" />A new way to learn, connect, and grow</div></div><div className="hero-visual reveal reveal-image"><div className="image-frame"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85" alt="Students collaborating around a laptop in a bright learning space" /><div className="image-label"><span>01</span><span>Learning in motion</span></div></div><div className="circle-stamp">Learn<br /><b>with</b><br />purpose</div></div><button className="scroll-cue" onClick={explore} aria-label="Scroll to the countdown"><span className="scroll-arrow">↓</span><span>Scroll to explore</span></button></section>;
+
+  return (
+    <section className="hero" id="top">
+      <div className="hero-copy">
+        <p className="pill reveal reveal-one"><span className="pill-dot" />The platform engineers are talking about</p>
+        <h1 className="reveal reveal-two">Skip the Hype.<br /><em>Learn What Works.</em></h1>
+        <p className="hero-text reveal reveal-three">
+          Not designed in a classroom. Built from the industry's perspective — the skills, tools, and systems companies are hiring for right now.
+        </p>
+        <p className="hero-text hero-text-tag reveal reveal-three">
+          Learn What Actually Gets You <span className="ink-highlight">Hired</span>.
+        </p>
+        <div className="hero-actions reveal reveal-four">
+          <button className="button button-primary" onClick={explore}>Get Early Access <span>↗</span></button>
+        </div>
+        <div className="hero-meta reveal reveal-four"><span className="meta-dot" />A new way to learn, connect, and grow</div>
+      </div>
+
+      <div className="hero-visual reveal reveal-image">
+        <div className="dashboard-mock">
+          <div className="dashboard-mock-header">
+            <span className="dashboard-dot dashboard-dot-red" />
+            <span className="dashboard-dot dashboard-dot-amber" />
+            <span className="dashboard-dot dashboard-dot-green" />
+            <span className="dashboard-path">&gt;_ gritskool/mastery.ts</span>
+          </div>
+          <div className="dashboard-card">
+            <span className="dashboard-card-icon">◆</span>
+            <div>
+              <strong>Full-Stack Engineering</strong>
+              <span>React, Node.js, Cloud &amp; DevOps</span>
+            </div>
+          </div>
+          <div className="dashboard-card">
+            <span className="dashboard-card-icon">◆</span>
+            <div>
+              <strong>AI &amp; Systems Design</strong>
+              <span>LLMs, Architecture, Scalable Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button className="scroll-cue" onClick={explore} aria-label="Scroll down to the countdown">
+        <span className="scroll-arrow">↓</span>
+        <span>Scroll down</span>
+      </button>
+    </section>
+  );
 }

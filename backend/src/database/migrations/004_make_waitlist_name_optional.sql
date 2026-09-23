@@ -1,0 +1,1 @@
+ALTER TABLE waitlist_members ALTER COLUMN name DROP NOT NULL;
