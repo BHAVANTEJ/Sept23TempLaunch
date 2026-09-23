@@ -10,7 +10,9 @@
 
 .hero h1{font-size:clamp(38px,6vw,66px);line-height:1.05;letter-spacing:-1.5px;white-space:nowrap}
 .hero-text{font-size:18px}
+.hero-text{max-width:680px}
 .ink-highlight{background:var(--ink);color:#fff;padding:4px 16px;border-radius:8px;display:inline-block;font-weight:800;line-height:1.25}
+@media(min-width:801px){.hero h1 br:last-of-type{display:none}}
 @media(max-width:430px){.ink-highlight{padding:2px 10px;border-radius:6px}}
 .hero-visual{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:16px}
 .scroll-cue{z-index:2;bottom:20px}
@@ -109,3 +111,6 @@ button.text-link:disabled{opacity:.5;cursor:not-allowed}
 /* Waitlist success state replaces the form */
 .success-block{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;max-width:480px;margin-top:14px;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 30px #0f2d5912}
 .success-heading{margin:0;font-size:clamp(16px,2.2vw,20px);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.hero-eyebrow{animation:hero-eyebrow-in .8s .1s ease-out both}
+@keyframes hero-eyebrow-in{from{opacity:0;transform:translateY(6px);text-shadow:0 0 0 transparent}to{opacity:1;transform:translateY(0);text-shadow:0 0 7px rgba(79,70,229,.16)}}
+@media(prefers-reduced-motion:reduce){.hero-eyebrow{animation:none}}

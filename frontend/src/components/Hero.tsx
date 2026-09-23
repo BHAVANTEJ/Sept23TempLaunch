@@ -4,11 +4,12 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <p className="pill reveal reveal-one"><span className="pill-dot" />The platform engineers are talking about</p>
+        <p className="pill reveal reveal-one hero-eyebrow"><span className="pill-dot" />The platform engineers are talking about</p>
         <h1 className="reveal reveal-two">
           Learn What
           <br />
           Actually
+          {' '}
           <br />
           Gets You <span className="ink-highlight">Hired</span>
         </h1>
